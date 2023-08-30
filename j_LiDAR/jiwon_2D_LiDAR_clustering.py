@@ -12,7 +12,6 @@ class clustering(Node):
         super().__init__('clustering_node')
         self.x_LiDAR        = 200 #mm
         self.y_LiDAR        = 300
-        self.cnt            = 0
         self.distance       = 0   #mm
         self.RC_group = ReentrantCallbackGroup()
         self.create_subscription(LiDAR,'/scan',self.LiDAR_callback,1, callback_group=self.RC_group)
@@ -21,8 +20,6 @@ class clustering(Node):
         pairs = [lst[i:i+2] for i in range(0, len(lst) - 1, 2)]
         if len(lst) % 2 == 1:
             pairs[-1:1].append([lst[-1]])
-        if len(pairs) == 0:
-            pass
         return pairs
 
     def LiDAR_callback(self,msg):
@@ -37,12 +34,14 @@ class clustering(Node):
             y = np.cos(angle) * self.lidar_data[i] * 1000
 
             if (abs(x) < self.x_LiDAR) & (y > 0) & (y < self.y_LiDAR): #mm
-                self.cnt +=1
                 self.converted_data.append([x,y])
                 self.distance = (math.sqrt(x*x + y*y))
                 self.distance_data.append(self.distance)
                 pairs = self.split_into_pairs(self.distance_data)
-                print(f"{(pairs)}")
+                if len(pairs) > 0:
+                    for i in range(len(pairs)):
+                        if abs(pairs[i][0] - pairs[i+1][1]) > 0.5:
+                            print("!") 
 
                 # for i in range(len(self.distance_data)):
 

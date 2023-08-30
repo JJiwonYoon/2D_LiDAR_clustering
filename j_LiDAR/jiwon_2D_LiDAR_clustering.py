@@ -38,10 +38,13 @@ class clustering(Node):
                 self.distance = (math.sqrt(x*x + y*y))
                 self.distance_data.append(self.distance)
                 pairs = self.split_into_pairs(self.distance_data)
+
                 if len(pairs) > 0:
                     for i in range(len(pairs)):
-                        if abs(pairs[i][0] - pairs[i+1][1]) > 0.5:
-                            print("!") 
+                        # print(f'{round(pairs[i][0]-pairs[i][1],5)}')
+                        if abs(pairs[i][0] - pairs[i][1]) > 10:
+                            print(f'{abs(pairs[i][0] - pairs[i][1])}')
+
 
                 # for i in range(len(self.distance_data)):
 
@@ -49,7 +52,7 @@ class clustering(Node):
                 #         print(f'{self.distance_data}')
                 #     else:
                 #         pass
-                # 
+                #
 
 def main():
         rclpy.init()

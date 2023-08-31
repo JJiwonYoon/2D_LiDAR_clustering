@@ -45,9 +45,9 @@ class clustering(Node):
             marker.pose.orientation.y = 0.0
             marker.pose.orientation.z = 0.0
             marker.pose.orientation.w = 1.0
-            marker.scale.x = 1.0
-            marker.scale.y = 1.0
-            marker.scale.z = 1.0
+            marker.scale.x = 2.0
+            marker.scale.y = 2.0
+            marker.scale.z = 2.0
             marker.color.a = 1.0
             marker.color.r = 144.0
             marker.color.g = 238.0

@@ -7,7 +7,6 @@ from sensor_msgs.msg import LaserScan as LiDAR
 import numpy as np
 import math
 from visualization_msgs.msg import Marker
-from geometry_msgs.msg import Point
 
 class clustering(Node):
     def __init__(self):
@@ -31,7 +30,8 @@ class clustering(Node):
             delete_marker.action = Marker.DELETE
             self.publisher_.publish(delete_marker)
             self.marker_to_delete = None
-        if self.x_filter != 0.0 :
+
+        if self.x_filter != 0.0 or self.y_filter != 0.0:
             marker = Marker()
             marker.header.frame_id = "map"
             marker.header.stamp = self.get_clock().now().to_msg()

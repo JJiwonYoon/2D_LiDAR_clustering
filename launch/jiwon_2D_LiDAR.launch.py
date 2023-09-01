@@ -8,7 +8,7 @@ def generate_launch_description():
     return LaunchDescription(
         [
             Node(
-                package='j_LiDAR',
+                package='path_planning',
                 executable='jiwon_2D_LiDAR_clustering',
                 name='jiwon_2D_LiDAR_clustering',
                 output='screen',

@@ -20,6 +20,19 @@ class clustering(Node):
         self.timer = self.create_timer(0.1, self.publish_marker)
         self.marker_id = 0
         self.marker_to_delete = None
+        self.global_x = self.position_load("/home/labmas/robot_ws/src/j_LiDAR/path/gps_x.txt")
+        self.global_y = self.position_load("/home/labmas/robot_ws/src/j_LiDAR/path/gps_y.txt")
+
+    def position_load(self,f_src):
+        txt_load = open(f_src, 'r')
+        position = []
+        while True:
+            line = txt_load.readline()
+            if not line:
+                break
+            line2 = line.split()
+            position.append(float(line2[0]))
+        return position
 
     def publish_marker(self):
         if self.marker_to_delete is not None:

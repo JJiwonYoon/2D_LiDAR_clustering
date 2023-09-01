@@ -58,13 +58,13 @@ class clustering(Node):
             marker.pose.orientation.y = 0.0
             marker.pose.orientation.z = 0.0
             marker.pose.orientation.w = 1.0
-            marker.scale.x = 0.1
-            marker.scale.y = 0.1
-            marker.scale.z = 0.1
+            marker.scale.x = 0.4
+            marker.scale.y = 0.4
+            marker.scale.z = 0.4
             marker.color.a = 1.0
-            marker.color.r = 144.0
-            marker.color.g = 238.0
-            marker.color.b = 144.0
+            marker.color.r = 0.0
+            marker.color.g = 255.0
+            marker.color.b = 0.0
             self.publisher_.publish(marker)
             self.marker_to_delete = self.marker_id
             self.marker_id += 1

@@ -7,7 +7,7 @@ from sensor_msgs.msg import LaserScan as LiDAR
 import numpy as np
 import math
 from visualization_msgs.msg import Marker
-
+#sss
 class clustering(Node):
     def __init__(self):
         super().__init__('clustering_node')

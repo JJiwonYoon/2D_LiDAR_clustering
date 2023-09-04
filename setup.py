@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'path_planning'
+package_name = '2D_clustering'
 
 setup(
     name=package_name,
@@ -22,7 +22,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'jiwon_2D_LiDAR = path_planning.jiwon_2D_LiDAR_clustering:main',
+            'jiwon_2D_LiDAR = 2D_clustering.jiwon_2D_LiDAR_clustering:main',
         ],
     },
 )

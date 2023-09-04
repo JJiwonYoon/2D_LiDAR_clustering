@@ -20,8 +20,8 @@ class clustering(Node):
         self.timer = self.create_timer(0.1, self.publish_marker)
         self.marker_id = 0
         self.marker_to_delete = None
-        self.global_x = self.position_load("/home/labmas/robot_ws/src/j_LiDAR/path/gps_x.txt")
-        self.global_y = self.position_load("/home/labmas/robot_ws/src/j_LiDAR/path/gps_y.txt")
+        self.global_x = self.position_load("/home/cwsfa/robot_ws/src/j_LiDAR/path/gps_x.txt")
+        self.global_y = self.position_load("/home/cwsfa/robot_ws/src/j_LiDAR/path/gps_y.txt")
 
     def position_load(self,f_src):
         txt_load = open(f_src, 'r')
